@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:instagramclone/components/post.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -45,12 +46,27 @@ class HomePage extends StatelessWidget {
                         shape: BoxShape.circle,
                         border: Border.all(
                           width: 3,
-                          color: index % 3 != 0 ? Colors.red : Colors.green,
-                        )
+                          color: index % 4 != 0 ? Colors.red : Colors.green,
+                        ),
                       ),
                     ),
                   );
                 },
+              ),
+            ),
+            Divider(
+              color: const Color.fromARGB(255, 31, 31, 31),
+            ),
+            SizedBox(height: 5,),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Post(),
+                  );
+                }
               ),
             )
           ],
